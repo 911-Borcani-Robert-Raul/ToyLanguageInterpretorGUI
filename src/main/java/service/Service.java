@@ -1,12 +1,11 @@
 package service;
 
 import controller.Controller;
-import javafx.beans.property.SimpleObjectProperty;
 import repository.IProgramStateRepository;
 
 public class Service {
-    private Controller controller;
-    private IProgramStateRepository repository;
+    private final Controller controller;
+    private final IProgramStateRepository repository;
 
     public Service(Controller controller) {
         this.controller = controller;

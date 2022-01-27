@@ -48,10 +48,8 @@ public class MyStack<T> implements MyIStack<T> {
         Collections.reverse(l);
 
         ArrayList<String> result = new ArrayList<>();
-        int idx = 0;
         for (T currentElement : l) {
             result.add(currentElement.toString());
-            idx += 1;
         }
 
         return result;

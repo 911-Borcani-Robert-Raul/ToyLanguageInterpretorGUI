@@ -10,6 +10,7 @@ public interface IProgramStateRepository {
 
     void logPrgStateExec(ProgramState program) throws MyException;
     void clearLogFile() throws MyException;
+
     List<ProgramState> getProgramsList();
     void setProgramsList(List<ProgramState> programs);
 
