@@ -2,6 +2,7 @@ package model.utils;
 
 import java.lang.reflect.AnnotatedType;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public interface MyIDictionary<K, V> {
     boolean isDefined(K id);
@@ -14,7 +15,7 @@ public interface MyIDictionary<K, V> {
 
     Arrays entrySet();
 
-    void setContent(HashMap<K, V> content);
+    void setContent(ConcurrentHashMap<K, V> content);
 
     Map<K, V> getContent();
 

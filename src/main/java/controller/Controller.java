@@ -12,10 +12,7 @@ import model.values.Value;
 import repository.IProgramStateRepository;
 
 import java.util.*;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 public class Controller {
@@ -77,7 +74,7 @@ public class Controller {
             List<MyIDictionary<String, Value>> symTables = programList.stream()
                             .map(ProgramState::getSymTable)
                     .collect(Collectors.toList());
-            heap.setContent((HashMap<Integer, Value>) garbageCollector(
+            heap.setContent((ConcurrentHashMap<Integer, Value>) garbageCollector(
                     getAddressesFromSymTables(symTables),
                     getAddressesFromValues(heap.getContent().values()),
                     heap
@@ -96,17 +93,10 @@ public class Controller {
     Map<Integer, Value> garbageCollector(Collection<Integer> symTableAddresses,
                                           Collection<Integer> heapAddresses,
                                           MyHeap heap) {
-        return heap.keys().stream()
+        return new ConcurrentHashMap<>(heap.keys().stream()
                 .filter(e -> symTableAddresses.contains(e) || heapAddresses.contains(e))
                 .collect(Collectors.toMap(e -> e,
-                        e -> {
-                            try {
-                                return heap.lookup(e);
-                            }
-                            catch (ADTException ignored) {
-                            }
-                            return null;
-                        }));
+                        heap::lookup)));
     }
 
     private Collection<Integer> getAddressesFromSymTables(List<MyIDictionary<String, Value>> symTables) {

@@ -4,12 +4,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class MyDictionary<K, V> implements MyIDictionary<K, V> {
-    HashMap<K, V> dictionary;
+    ConcurrentHashMap<K, V> dictionary;
 
     public MyDictionary() {
-        dictionary = new HashMap<>();
+        dictionary = new ConcurrentHashMap<K, V>();
     }
 
     @Override
@@ -41,7 +42,7 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V> {
     }
 
     @Override
-    public void setContent(HashMap<K, V> content) {
+    public void setContent(ConcurrentHashMap<K, V> content) {
         dictionary = content;
     }
 
