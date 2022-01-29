@@ -71,7 +71,7 @@ public class Controller {
     public void runOneStep() throws MyException {
         executor = Executors.newFixedThreadPool(2);
         // remove the completed programs
-        List<ProgramState> programList = states.getProgramsList();
+        List<ProgramState> programList = removeCompletedPrograms(states.getProgramsList());
         if (programList.size() > 0){
             MyHeap heap = programList.get(0).getHeap();
             List<MyIDictionary<String, Value>> symTables = programList.stream()
@@ -83,8 +83,6 @@ public class Controller {
                     heap
             ));
             oneStepForAllPrograms(programList);
-            // remove the completed programs
-            programList = states.getProgramsList();
         }
 
         executor.shutdownNow();

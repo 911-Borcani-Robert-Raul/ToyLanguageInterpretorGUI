@@ -409,3 +409,102 @@ FileTable:
 HeapTable:
 {1=30}
 
+Program id: 2
+ExeStack:
+v=32
+(print(v), print(heapRead(a)))
+Symtable:
+{a=ref(1, int), v=10}
+Out
+[10, 30]
+FileTable:
+{}
+HeapTable:
+{1=30}
+
+Program id: 2
+ExeStack:
+(print(v), print(heapRead(a)))
+Symtable:
+{a=ref(1, int), v=32}
+Out
+[10, 30]
+FileTable:
+{}
+HeapTable:
+{1=30}
+
+Program id: 2
+ExeStack:
+(print(v), print(heapRead(a)))
+Symtable:
+{a=ref(1, int), v=32}
+Out
+[10, 30]
+FileTable:
+{}
+HeapTable:
+{1=30}
+
+Program id: 2
+ExeStack:
+print(v)
+print(heapRead(a))
+Symtable:
+{a=ref(1, int), v=32}
+Out
+[10, 30]
+FileTable:
+{}
+HeapTable:
+{1=30}
+
+Program id: 2
+ExeStack:
+print(v)
+print(heapRead(a))
+Symtable:
+{a=ref(1, int), v=32}
+Out
+[10, 30]
+FileTable:
+{}
+HeapTable:
+{1=30}
+
+Program id: 2
+ExeStack:
+print(heapRead(a))
+Symtable:
+{a=ref(1, int), v=32}
+Out
+[10, 30, 32]
+FileTable:
+{}
+HeapTable:
+{1=30}
+
+Program id: 2
+ExeStack:
+print(heapRead(a))
+Symtable:
+{a=ref(1, int), v=32}
+Out
+[10, 30, 32]
+FileTable:
+{}
+HeapTable:
+{1=30}
+
+Program id: 2
+ExeStack:
+
+Symtable:
+{a=ref(1, int), v=32}
+Out
+[10, 30, 32, 30]
+FileTable:
+{}
+HeapTable:
+{1=30}
+

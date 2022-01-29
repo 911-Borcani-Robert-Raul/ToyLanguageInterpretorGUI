@@ -237,6 +237,7 @@ public class HelloController implements Initializable {
 
     public void handleMouseClick(MouseEvent mouseEvent) {
         updateExecutionStack();
+        updateSymbolTable();
     }
 
     private ProgramState getCurrentProgram() {
